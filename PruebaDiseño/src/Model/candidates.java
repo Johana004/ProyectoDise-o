@@ -6,7 +6,9 @@ public class candidates {
     private int id, id_number, age, votes;
     private String name, last_name, second_name,photo, politic_party;
 
-    public candidates(int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
+    
+      public candidates(int id, int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
+        this.id = id;
         this.id_number = id_number;
         this.age = age;
         this.votes = votes;
@@ -16,9 +18,7 @@ public class candidates {
         this.photo = photo;
         this.politic_party = politic_party;
     }
-
-    public candidates(int id, int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
-        this.id = id;
+    public candidates(int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
         this.id_number = id_number;
         this.age = age;
         this.votes = votes;

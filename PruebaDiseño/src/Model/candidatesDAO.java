@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import Model.candidates;
+import Model.*;
 /**
  *
  * @author Cliente
@@ -60,10 +60,10 @@ public class candidatesDAO {
         }
     }
 
-    // Método para recuperar una lista de todos los candidatos de la base de datos
-   /* public List<candidates> readCandidates() {
+    
+    public List<candidates> readCandidates() {
         DBConnection db = new DBConnection();
-        List<candidates> candidates = new ArrayList<>();
+        List<candidates> Candidates = new ArrayList<>();
         String sql = "SELECT * FROM candidates;";
 
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql); ResultSet resultSet = ps.executeQuery()) {
@@ -76,16 +76,17 @@ public class candidatesDAO {
                 String name = resultSet.getString("name");
                 String last_name = resultSet.getString("Last_name");
                 String second_name = resultSet.getString("second_name");
+                String photo = resultSet.getString("photo");
                 String politic_party = resultSet.getString("politic_party");
-                candidates.add(new candidates(id, id_number, age, votes, name, last_name, second_name, politic_party));
+                Candidates.add(new candidates(id, id_number, age, votes, name, last_name, second_name,photo, politic_party));
             }
         } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
         } finally {
             db.disconnect();
         }
-        return candidates;
-    }*/
+        return Candidates;
+    }
 
    public void deleteCandidate(int id) {
         DBConnection db = new DBConnection();

@@ -5,7 +5,7 @@ package Controller;
 
 /**
  *
- * @author Cliente
+ * @author Johana
  */
 public class CTRLCandadites {
     
