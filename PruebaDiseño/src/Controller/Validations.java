@@ -9,9 +9,10 @@ import javax.swing.JOptionPane;
 import Model.DBConnection;
 /**
  *
- * @author Cliente
+ * @author Johana
  */
 public class Validations {
+    
     public class Validation {
     public static boolean validateLetters(String value) {
         String regex = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$";
@@ -23,13 +24,13 @@ public class Validations {
         return value.matches(regex);
     }
 
-    public static boolean verifyCandidateExist(String idNumber) {
+    public static boolean verifyCandidateExist(int IDNumber) {
         DBConnection db = new DBConnection();
         String consultaSQL = "SELECT COUNT(*) FROM candidates WHERE id_number = ?";
 
         try {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
-            ps.setString(1, idNumber);
+            ps.setInt(1, IDNumber);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
