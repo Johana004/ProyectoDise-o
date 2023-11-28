@@ -1,7 +1,7 @@
 
 package Model;
 
-import View.User;
+import Model.User;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ import java.sql.ResultSet;
  *
  * @author Cliente
  */
-public class UsersDAO {
-        // Method to create a new result record in the database
-    public void createUser(Users user) {
+public class UserDAO {
+      // Method to create a new result record in the database
+    public void createUser(User user) {
     DBConnection db = new DBConnection();
     String consultaSQL = "INSERT INTO users (name, last_name, second_name, id_number, age, address, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
     
@@ -35,15 +35,12 @@ public class UsersDAO {
     } finally {
         db.disconnect();
     }
-}
-    
-    
-    public List<Users> readUser() {
-    DBConnection db = new DBConnection();
-    List<Users> users = new ArrayList<>();
-    String sql = "SELECT * FROM users";
-
-    try {
+}   
+    public List<User> readUser() {
+        DBConnection db = new DBConnection();
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+        try {
         PreparedStatement ps = db.getConnection().prepareStatement(sql);
         ResultSet resultSet = ps.executeQuery();
         while (resultSet.next()) {
@@ -55,8 +52,7 @@ public class UsersDAO {
             int age = resultSet.getInt("age");
             String address = resultSet.getString("address");
             String password = resultSet.getString("password");
-
-            Users user = new Users(id, name, lastName, secondName, idNumber, age, address, password);
+            User user = new User(id, name, lastName, secondName, idNumber, age, address, password);
             users.add(user);
         }
     } catch (SQLException e) {
@@ -66,8 +62,7 @@ public class UsersDAO {
     }
     return users;
 }
-
-     public void updateUser(Users user) {
+    public void updateUser(User user) {
         DBConnection db = new DBConnection();
         String consultaSQL = "UPDATE users SET name=?, last_name=?, second_name=?, id_number=?, age=?, address=?, password=? WHERE id=?";
         try {
@@ -81,29 +76,25 @@ public class UsersDAO {
             ps.setString(7, user.getPassword());
             ps.setInt(8, user.getId());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Modificación Exitosa");
+            JOptionPane.showMessageDialog(null, "Modificación exitosa");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No se pudo modificar el usuario, error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error, no se pudo modificar el usuario: " + e.getMessage());
         } finally {
             db.disconnect();
         }
     }
-
-         public void deleteUser(int id) {
+    public void deleteUser(int id) {
         DBConnection db = new DBConnection();
         String consultaSQL = "DELETE FROM users WHERE id=?";
         try {
             PreparedStatement preparedStatement = db.getConnection().prepareStatement(consultaSQL);
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
-            JOptionPane.showMessageDialog(null, "Resulto eliminado correctamente");
+            JOptionPane.showMessageDialog(null, "El usuario fue eliminado correctamente");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No se pudo eliminar el usuario, error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error, no se pudo eliminar el usuario: " + e.getMessage());
         } finally {
             db.disconnect();
         }
-    }
-     
-     
-     
+    }  
 }

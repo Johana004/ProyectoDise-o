@@ -7,7 +7,7 @@ package Controller;
  *
  * @author Johana
  */
-public class CTRLCandadites {
+public class CtrlCandidate {
     
     
     

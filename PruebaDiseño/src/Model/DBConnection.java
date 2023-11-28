@@ -10,7 +10,8 @@ import java.sql.SQLException;
  * @author Johana
  */
 public class DBConnection {
-     static String bd = "pruebadiseño";
+
+    static String bd = "pruebadiseño";
     static String port = "3306";
     static String login = "root";
     static String password = "Eren2004";
@@ -19,7 +20,8 @@ public class DBConnection {
     Connection connection = null;
 
     public DBConnection() {
-        try {// Load the MariaDB JDBC driver
+        // Load the MariaDB JDBC driver
+        try {
             Class.forName("org.mariadb.jdbc.Driver");
             // Establish a database connection
             connection = DriverManager.getConnection(url, login, password);
@@ -30,14 +32,12 @@ public class DBConnection {
             System.err.println("Error al establecer la conexion: " + e.getMessage());
         }
     }
-
     public Connection getConnection() {
         return connection;
     }
-public void setConnection(Connection connection) {
+    public void setConnection(Connection connection) {
         this.connection = connection;
     }
-
     // Close the database connection
     public void disconnect() {
         if (connection != null) {
