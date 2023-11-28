@@ -10,19 +10,22 @@ import java.util.Date;
 public class Period {
     private int id;
     private String name;
-    private Date star_date;
+    private Date start_date;
     private Date end_date;
 
-    public Period(String name, Date star_date, Date end_date) {
+    public Period() {
+    }
+
+    public Period(String name, Date start_date, Date end_date) {
         this.name = name;
-        this.star_date = star_date;
+        this.start_date = start_date;
         this.end_date = end_date;
     }
 
-    public Period(int id, String name, Date star_date, Date end_date) {
+    public Period(int id, String name, Date start_date, Date end_date) {
         this.id = id;
         this.name = name;
-        this.star_date = star_date;
+        this.start_date = start_date;
         this.end_date = end_date;
     }
 
@@ -42,12 +45,12 @@ public class Period {
         this.name = name;
     }
 
-    public Date getStar_date() {
-        return star_date;
+    public Date getStart_date() {
+        return start_date;
     }
 
-    public void setStar_date(Date star_date) {
-        this.star_date = star_date;
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
     }
 
     public Date getEnd_date() {

@@ -3,11 +3,14 @@ package Model;
 
 
 public class Candidate {
-    private int id, id_number, age, votes;
-    private String name, last_name, second_name,photo, politic_party;
 
-    
-      public Candidate(int id, int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
+    private int id, id_number, age, votes;
+    private String name, last_name, second_name, photo, politic_party;
+
+    public Candidate() {
+    }
+
+    public Candidate(int id, int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
         this.id = id;
         this.id_number = id_number;
         this.age = age;
@@ -18,6 +21,7 @@ public class Candidate {
         this.photo = photo;
         this.politic_party = politic_party;
     }
+
     public Candidate(int id_number, int age, int votes, String name, String last_name, String second_name, String photo, String politic_party) {
         this.id_number = id_number;
         this.age = age;
@@ -56,7 +60,7 @@ public class Candidate {
     public int getVotes() {
         return votes;
     }
-    
+
     public void setVotes(int votes) {
         this.votes = votes;
     }
@@ -99,5 +103,5 @@ public class Candidate {
 
     public void setPolitic_party(String politic_party) {
         this.politic_party = politic_party;
-    }  
+    }
 }

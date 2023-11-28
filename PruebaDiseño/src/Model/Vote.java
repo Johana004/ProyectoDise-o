@@ -13,6 +13,9 @@ public class Vote {
     private int candidate_id;
     private Timestamp date_vote;
 
+    public Vote() {
+    }
+
     public Vote(int voter_id, int candidate_id, Timestamp date_vote) {
         this.voter_id = voter_id;
         this.candidate_id = candidate_id;

@@ -27,11 +27,10 @@ public class UserDAO {
         ps.setInt(5, user.getAge());
         ps.setString(6, user.getAddress());
         ps.setString(7, user.getPassword());
-        
         ps.execute();
         JOptionPane.showMessageDialog(null, "Usuario insertado correctamente");
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "No se pudo insertar el usuario, error: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error, no se pudo insertar el usuario: " + e.getMessage());
     } finally {
         db.disconnect();
     }
