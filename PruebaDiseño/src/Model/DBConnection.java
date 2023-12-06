@@ -11,10 +11,10 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    static String bd = "pruebadiseño";
+    static String bd = "proyectodiseño";
     static String port = "3306";
     static String login = "root";
-    static String password = "Eren2004";
+    static String password = "Allyson18*";
     static String url = "jdbc:mariadb://localhost:" + port + "/" + bd;
 
     Connection connection = null;

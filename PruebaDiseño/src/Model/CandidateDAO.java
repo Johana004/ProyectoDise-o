@@ -19,15 +19,14 @@ public class CandidateDAO {
     public void createCandidate(Candidate cand) {
         DBConnection db = new DBConnection();
         try {
-            PreparedStatement ps = db.getConnection().prepareStatement("INSERT INTO candidates (name,last_name,second_name,age,photo,politic_party,votes,id_number) VALUES(?,?,?,?,?,?,?,?)");
-            ps.setString(1, cand.getName());
-            ps.setString(2, cand.getLast_name());
-            ps.setString(3, cand.getSecond_name());
-            ps.setInt(4, cand.getAge());
-            ps.setString(5, cand.getPhoto()); // Save photo as byte
-            ps.setString(6, cand.getPolitic_party());
-            ps.setInt(7, cand.getVotes());
-            ps.setInt(8, cand.getId_number());
+            PreparedStatement ps = db.getConnection().prepareStatement("INSERT INTO candidates (id_number,name,last_name,second_name,age,votes,politic_party) VALUES(?,?,?,?,?,?,?)");
+            ps.setInt(1, cand.getId_number());
+            ps.setString(2, cand.getName());
+            ps.setString(3, cand.getLast_name());
+            ps.setString(4, cand.getSecond_name());
+            ps.setInt(5, cand.getAge());
+            ps.setInt(6, cand.getVotes());
+            ps.setString(7, cand.getPolitic_party());
             ps.execute();
             JOptionPane.showMessageDialog(null, "Se insertó correctamente el candidato");
         } catch (SQLException e) {
@@ -36,18 +35,18 @@ public class CandidateDAO {
             db.disconnect();
         }
     }
-   public void updateCandidates(Candidate candidate) {
+   public void updateCandidates(Candidate cand) {
         DBConnection db = new DBConnection();
         try {
-            PreparedStatement ps = db.getConnection().prepareStatement("UPDATE candidates SET  name=?, last_name=?, second_name=?,age=?,photo=?,politic_party=?,id_number=? WHERE id=?");
-            ps.setInt(1, candidate.getId());
-            ps.setString(2, candidate.getName());
-            ps.setString(3, candidate.getLast_name());
-            ps.setString(4, candidate.getSecond_name());
-            ps.setInt(5, candidate.getAge());
-            ps.setString(6, candidate.getPhoto());
-            ps.setString(7, candidate.getPolitic_party());
-            ps.setInt(8, candidate.getId_number());
+            PreparedStatement ps = db.getConnection().prepareStatement("UPDATE candidates SET id_number=?, name=?, last_name=?, second_name=?,age=?,votes=?,politic_party=? WHERE id=?");
+            ps.setInt(1, cand.getId_number());
+            ps.setString(2, cand.getName());
+            ps.setString(3, cand.getLast_name());
+            ps.setString(4, cand.getSecond_name());
+            ps.setInt(5, cand.getAge());
+            ps.setInt(6, cand.getVotes());
+            ps.setString(7, cand.getPolitic_party());
+            ps.setInt(8, cand.getId());
             ps.execute();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error, no se insertó correctamente el candidato: " + e.toString());
@@ -65,14 +64,13 @@ public class CandidateDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int id_number = resultSet.getInt("id_number");
-                int age = resultSet.getInt("age");
-                int votes = resultSet.getInt("votes");
                 String name = resultSet.getString("name");
                 String last_name = resultSet.getString("Last_name");
                 String second_name = resultSet.getString("second_name");
-                String photo = resultSet.getString("photo");
+                int age = resultSet.getInt("age");
+                int votes= resultSet.getInt("votes");
                 String politic_party = resultSet.getString("politic_party");
-                Candidates.add(new Candidate(id, id_number, age, votes, name, last_name, second_name,photo, politic_party));
+                Candidates.add(new Candidate(id, id_number,name, last_name, second_name, age, votes, politic_party));
             }
         } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());

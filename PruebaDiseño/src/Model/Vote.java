@@ -2,6 +2,7 @@
 package Model;
 
 import java.security.Timestamp;
+import java.util.Date;
 
 /**
  *
@@ -11,19 +12,19 @@ public class Vote {
     private int id;
     private int voter_id;
     private int candidate_id;
-    private Timestamp date_vote;
+    private Date date_vote;
 
     public Vote() {
     }
 
-    public Vote(int voter_id, int candidate_id, Timestamp date_vote) {
+    public Vote(int voter_id, int candidate_id, Date date_vote) {
         this.voter_id = voter_id;
         this.candidate_id = candidate_id;
         this.date_vote = date_vote;
     }
 
     
-    public Vote(int id, int voter_id, int candidate_id, Timestamp date_vote) {
+    public Vote(int id, int voter_id, int candidate_id, Date date_vote) {
         this.id = id;
         this.voter_id = voter_id;
         this.candidate_id = candidate_id;
@@ -54,11 +55,11 @@ public class Vote {
         this.candidate_id = candidate_id;
     }
 
-    public Timestamp getDate_vote() {
+    public Date getDate_vote() {
         return date_vote;
     }
 
-    public void setDate_vote(Timestamp date_vote) {
+    public void setDate_vote(Date date_vote) {
         this.date_vote = date_vote;
     }
     

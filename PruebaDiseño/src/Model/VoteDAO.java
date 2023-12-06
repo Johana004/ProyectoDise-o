@@ -2,7 +2,7 @@
 package Model;
 
 
-import java.security.Timestamp;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +27,7 @@ public class VoteDAO {
             PreparedStatement ps = db.getConnection().prepareStatement(SQL);
             ps.setInt(1, vote.getVoter_id());
             ps.setInt(2, vote.getCandidate_id());
+            ps.setDate(3, (Date) vote.getDate_vote());
             ps.execute();
             JOptionPane.showMessageDialog(null, "El voto se agregó correctamente");
         } catch (SQLException e) {
@@ -46,7 +47,7 @@ public class VoteDAO {
                 int id = resultSet.getInt("id");
                 int voter_id= resultSet.getInt("voter id");
                 int candidate_id= resultSet.getInt("candidate id");
-                java.sql.Timestamp date_vote= resultSet.getTimestamp("date vote");
+                Date date_vote= resultSet.getDate("date vote");
                 votes.add(new Vote(id,voter_id,candidate_id,date_vote));
             }
         } catch (SQLException e) {
@@ -63,6 +64,8 @@ public class VoteDAO {
             PreparedStatement ps = db.getConnection().prepareStatement(consultaSQL);
             ps.setInt(1, vote.getVoter_id());
             ps.setInt(2, vote.getCandidate_id());
+            ps.setDate(3, (Date) vote.getDate_vote());
+            ps.setInt(4, vote.getId());
             ps.execute();
             JOptionPane.showMessageDialog(null, "La actualización del voto fue exitosa");
         } catch (SQLException e) {
