@@ -13,9 +13,6 @@ public class PruebaDiseño {
         Login lg = new Login();
         lg.setVisible(true);
         
-        Registration rg= new Registration();
-        rg.setVisible(true);
-        
         Admin ad= new Admin();
         ad.setVisible(true);
         

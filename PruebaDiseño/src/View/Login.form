@@ -106,7 +106,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="111" max="-2" attributes="0"/>
+                      <Component id="btnEntry" min="-2" pref="111" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -125,7 +125,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtContralogin" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace pref="63" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="btnEntry" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -160,14 +160,14 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtContralogin">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnEntry">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/View/View.image/icons8-ley-100.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntryActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
